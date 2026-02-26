@@ -1,0 +1,48 @@
+.search-results-page {
+  background: var(--primary-navy-50);
+  min-height: 80vh;
+}
+
+.py-12 {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.mt-16 {
+  margin-top: 64px;
+}
+
+::ng-deep .ant-result {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 64px 32px;
+}
+
+.suggestion-title {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--primary-navy-900);
+}
+
+.suggestion-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+.price-box {
+  .price {
+    font-weight: 700;
+    color: var(--primary-navy-500);
+  }
+  .unit {
+    font-size: 11px;
+    color: var(--primary-navy-400);
+    margin-left: 4px;
+  }
+}

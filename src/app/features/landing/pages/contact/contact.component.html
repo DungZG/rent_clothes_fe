@@ -1,0 +1,102 @@
+<div class="contact-page">
+    <section class="section-padding bg-navy text-white text-center">
+        <div class="container container-sm">
+            <h1 class="title">Liên hệ với chúng mình</h1>
+            <p class="subtitle opacity-80">
+                Bạn có thắc mắc, góp ý hay muốn hợp tác? Đừng ngần ngại để lại lời nhắn,
+                đội ngũ Thuê Gì luôn sẵn sàng hỗ trợ bạn.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div nz-row [nzGutter]="48">
+                <!-- Contact Info -->
+                <div nz-col [nzXs]="24" [nzLg]="10">
+                    <div class="info-sidebar">
+                        <h2 class="mb-8">Thông tin liên hệ</h2>
+                        <div class="info-item" *ngFor="let item of contactInfo">
+                            <div class="info-icon">
+                                <span nz-icon [nzType]="item.icon"></span>
+                            </div>
+                            <div class="info-text">
+                                <h3>{{item.title}}</h3>
+                                <p>{{item.content}}</p>
+                            </div>
+                        </div>
+
+                        <div class="social-box mt-12">
+                            <h3>Theo dõi chúng mình</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><span nz-icon nzType="facebook"></span></a>
+                                <a href="#" class="social-link"><span nz-icon nzType="instagram"></span></a>
+                                <a href="#" class="social-link"><span nz-icon nzType="twitter"></span></a>
+                                <a href="#" class="social-link"><span nz-icon nzType="youtube"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div nz-col [nzXs]="24" [nzLg]="14">
+                    <div class="form-card">
+                        <h3>Gửi lời nhắn</h3>
+                        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" nzLayout="vertical">
+                            <div nz-row [nzGutter]="16">
+                                <div nz-col [nzSpan]="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzRequired>Họ và tên</nz-form-label>
+                                        <nz-form-control nzErrorTip="Vui lòng nhập tên của bạn">
+                                            <input nz-input formControlName="name" placeholder="Ví dụ: Nguyễn Văn A" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                                <div nz-col [nzSpan]="12">
+                                    <nz-form-item>
+                                        <nz-form-label nzRequired>Email</nz-form-label>
+                                        <nz-form-control nzErrorTip="Vui lòng nhập email hợp lệ">
+                                            <input nz-input formControlName="email"
+                                                placeholder="Ví dụ: name@example.com" />
+                                        </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                            </div>
+
+                            <nz-form-item>
+                                <nz-form-label nzRequired>Chủ đề</nz-form-label>
+                                <nz-form-control nzErrorTip="Vui lòng chọn hoặc nhập chủ đề">
+                                    <input nz-input formControlName="subject"
+                                        placeholder="Bạn muốn hỏi về vấn đề gì?" />
+                                </nz-form-control>
+                            </nz-form-item>
+
+                            <nz-form-item>
+                                <nz-form-label nzRequired>Nội dung</nz-form-label>
+                                <nz-form-control nzErrorTip="Vui lòng nhập nội dung lời nhắn">
+                                    <textarea nz-input formControlName="message"
+                                        [nzAutosize]="{ minRows: 4, maxRows: 8 }"
+                                        placeholder="Nhập lời nhắn của bạn tại đây..."></textarea>
+                                </nz-form-control>
+                            </nz-form-item>
+
+                            <button nz-button nzType="primary" nzSize="large" [nzLoading]="false" class="btn-submit">
+                                Gửi lời nhắn ngay
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map UI Placeholder -->
+    <section class="map-section">
+        <div class="map-placeholder">
+            <div class="map-overlay">
+                <span nz-icon nzType="environment" class="pin"></span>
+                <p>Tìm chúng mình trên bản đồ</p>
+            </div>
+        </div>
+    </section>
+</div>

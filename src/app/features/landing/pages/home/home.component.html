@@ -1,3 +1,244 @@
-<p>
-  home works!
-</p>
+<div class="landing-page">
+  <!-- Hero Section -->
+  <section class="hero-section hero-stitch">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Khám phá Thế giới <br><span class="text-gold">Cosplay</span> của bạn</h1>
+        <p class="hero-subtitle">
+          Thuê trang phục chất lượng cao từ các nhà sáng tạo tâm huyết.
+          Giá cả minh bạch, thủ tục nhanh gọn, cộng đồng uy tín.
+        </p>
+
+        <div class="hero-search-card">
+          <form class="hero-search-form" (ngSubmit)="onSearch()">
+            <div class="hero-search-fields">
+              <div class="hero-search-field">
+                <div class="field-label">Category</div>
+                <nz-select
+                  class="field-control"
+                  nzSize="large"
+                  nzPlaceHolder="Costume, Staff..."
+                  [(ngModel)]="search.category"
+                  name="category"
+                  [nzBorderless]="true"
+                >
+                  <nz-option *ngFor="let opt of categoryOptions" [nzLabel]="opt.label" [nzValue]="opt.value"></nz-option>
+                </nz-select>
+              </div>
+
+              <div class="hero-search-divider"></div>
+
+              <div class="hero-search-field">
+                <div class="field-label">Character</div>
+                <input
+                  class="field-control"
+                  nz-input
+                  nzSize="large"
+                  placeholder="Genshin, Anime..."
+                  [(ngModel)]="search.character"
+                  name="character"
+                  nzBorderless
+                />
+              </div>
+
+              <div class="hero-search-divider"></div>
+
+              <div class="hero-search-field">
+                <div class="field-label">Date</div>
+                <nz-range-picker
+                  class="field-control"
+                  nzSize="large"
+                  [(ngModel)]="search.dateRange"
+                  name="dateRange"
+                  [nzBorderless]="true"
+                  nzPlaceHolder="Chọn khoảng ngày"
+                ></nz-range-picker>
+              </div>
+            </div>
+
+            <button
+              nz-button
+              nzType="primary"
+              nzSize="large"
+              class="btn-search-stitch"
+              htmlType="submit"
+            >
+              <span nz-icon nzType="search"></span>
+              Search
+            </button>
+          </form>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">5,000+</span>
+            <span class="stat-label">Trang phục</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-value">1,200+</span>
+            <span class="stat-label">Chủ shop</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-value">10k+</span>
+            <span class="stat-label">Giao dịch</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giữ hero image ở bản Angular hiện tại (có thể bỏ sau nếu muốn giống Stitch 100%) -->
+      <div class="hero-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=800&auto=format"
+          alt="Cosplay Hero" class="hero-image">
+        <div class="floating-card c1">
+          <span nz-icon nzType="check-circle" nzTheme="fill" class="check-icon"></span>
+          <span>Đã xác minh uy tín</span>
+        </div>
+        <div class="floating-card c2">
+          <span class="text-gold">★ 4.9</span>
+          <span>Đánh giá trung bình</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Costumes -->
+  <section class="section-padding featured-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Trang phục nổi bật</h2>
+          <p class="section-subtitle">Lựa chọn hàng đầu từ cộng đồng trong tuần qua</p>
+        </div>
+        <button nz-button nzType="link" class="btn-more" routerLink="/costumes">
+          Xem tất cả <span nz-icon nzType="arrow-right"></span>
+        </button>
+      </div>
+
+      <div nz-row [nzGutter]="[24, 24]">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzLg]="6" *ngFor="let item of featuredCostumes">
+          <nz-card nzHoverable class="costume-card" [nzCover]="coverTemplate">
+            <nz-card-meta [nzTitle]="titleTemplate" [nzDescription]="descTemplate"></nz-card-meta>
+
+            <ng-template #coverTemplate>
+              <div class="card-image-box">
+                <img [alt]="item.name" [src]="item.image" />
+                <div class="card-tag">{{item.category}}</div>
+              </div>
+            </ng-template>
+
+            <ng-template #titleTemplate>
+              <div class="card-title">{{item.name}}</div>
+            </ng-template>
+
+            <ng-template #descTemplate>
+              <div class="card-footer">
+                <div class="card-price">
+                  <span class="price-val">{{item.price}}</span>
+                  <span class="price-unit">{{item.unit}}</span>
+                </div>
+                <div class="card-rating">
+                  <span nz-icon nzType="star" nzTheme="fill" class="star-icon"></span>
+                  <span>{{item.rating}}</span>
+                </div>
+              </div>
+            </ng-template>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section class="section-padding categories-section bg-navy-light">
+    <div class="container">
+      <h2 class="section-title text-center">Khám phá theo danh mục</h2>
+      <div nz-row [nzGutter]="[24, 24]" class="categories-grid">
+        <div nz-col [nzXs]="12" [nzMd]="6" *ngFor="let cat of categories">
+          <div class="category-box">
+            <div class="cat-icon" [style.background-color]="cat.color + '15'">
+              <span nz-icon [nzType]="cat.icon" [style.color]="cat.color"></span>
+            </div>
+            <h3 class="cat-name">{{cat.name}}</h3>
+            <span class="cat-count">{{cat.count}}+ items</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="section-padding how-section">
+    <div class="container">
+      <h2 class="section-title text-center">Quy trình đơn giản</h2>
+      <div nz-row [nzGutter]="[40, 40]" class="steps-row">
+        <div nz-col [nzXs]="24" [nzMd]="8" class="step-item">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Tìm bộ đồ ưng ý</h3>
+            <p>Duyệt qua hàng ngàn trang phục với thông tin chi tiết về kích thước và tình trạng.</p>
+          </div>
+        </div>
+        <div nz-col [nzXs]="24" [nzMd]="8" class="step-item">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Đặt lịch & Trao đổi</h3>
+            <p>Nhắn tin trực tiếp với chủ shop, chọn ngày thuê và thanh toán an toàn qua app.</p>
+          </div>
+        </div>
+        <div nz-col [nzXs]="24" [nzMd]="8" class="step-item">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Nhận hàng & Tỏa sáng</h3>
+            <p>Nhận đồ qua ship hoặc lấy trực tiếp. Hãy để lại review sau khi dự Festival nhé!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-padding testimonials-section bg-navy-light">
+    <div class="container">
+      <h2 class="section-title text-center">Đánh giá từ cộng đồng</h2>
+      <div nz-row [nzGutter]="[32, 32]" class="testimonials-grid">
+        <div nz-col [nzXs]="24" [nzMd]="12" *ngFor="let t of testimonials">
+          <div class="testimonial-card">
+            <div class="testi-content">
+              <span nz-icon nzType="comment" class="quote-icon"></span>
+              <p>{{t.content}}</p>
+            </div>
+            <div class="testi-user">
+              <nz-avatar [nzSrc]="t.avatar" nzSize="large"></nz-avatar>
+              <div class="user-meta">
+                <span class="user-name">{{t.name}}</span>
+                <span class="user-role">{{t.role}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-padding cta-section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-text">
+          <h2>Bạn có đồ Cosplay không dùng đến?</h2>
+          <p>Tham gia đội ngũ Host trên Thuê Gì để tạo thêm thu nhập linh hoạt từ đam mê của bạn.</p>
+          <div class="cta-btns">
+            <button nz-button nzType="primary" nzSize="large" routerLink="/become-host" class="btn-cta-primary">Bắt đầu
+              ngay</button>
+            <button nz-button nzType="default" nzSize="large" nzGhost class="btn-cta-secondary">Tìm hiểu thêm</button>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <!-- Illustration or graphic element -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

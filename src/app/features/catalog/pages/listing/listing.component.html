@@ -1,0 +1,105 @@
+<div class="listing-page">
+    <div class="container py-8">
+        <nz-breadcrumb class="mb-8">
+            <nz-breadcrumb-item><a routerLink="/">Trang chủ</a></nz-breadcrumb-item>
+            <nz-breadcrumb-item>Danh mục trang phục</nz-breadcrumb-item>
+        </nz-breadcrumb>
+
+        <div nz-row [nzGutter]="32">
+            <!-- Sidebar Filters -->
+            <div nz-col [nzXs]="24" [nzLg]="6" class="filters-sidebar">
+                <div class="filter-card">
+                    <div class="filter-header">
+                        <h3>Bộ lọc</h3>
+                        <button nz-button nzType="link" nzDanger>Xóa tất cả</button>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Danh mục</h4>
+                        <div class="filter-group">
+                            <label nz-checkbox *ngFor="let cat of categories" [(ngModel)]="cat.checked">
+                                {{cat.label}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Khoảng giá (VNĐ)</h4>
+                        <nz-slider nzRange [(ngModel)]="priceRange" [nzMin]="0" [nzMax]="2000000"
+                            [nzStep]="50000"></nz-slider>
+                        <div class="price-inputs">
+                            <span>{{formatPrice(priceRange[0])}}</span>
+                            <span>{{formatPrice(priceRange[1])}}</span>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Kích thước</h4>
+                        <div class="filter-group size-group">
+                            <label nz-checkbox *ngFor="let s of sizes" [(ngModel)]="s.checked">
+                                {{s.label}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Đánh giá</h4>
+                        <div class="filter-group">
+                            <label nz-checkbox *ngFor="let r of [5,4,3]" [nzValue]="r">
+                                <nz-rate [ngModel]="r" nzDisabled></nz-rate>
+                                <span class="ml-2">từ {{r}} sao</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button nz-button nzType="primary" nzBlock class="mt-4">Áp dụng</button>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div nz-col [nzXs]="24" [nzLg]="18">
+                <div class="results-header mb-6">
+                    <h2 class="results-count">Tìm thấy <strong>{{costumes.length}}</strong> trang phục</h2>
+                    <div class="header-actions">
+                        <span class="mr-3">Sắp xếp:</span>
+                        <nz-select [ngModel]="'popular'" nzPlaceHolder="Sắp xếp" style="width: 160px;">
+                            <nz-option nzValue="popular" nzLabel="Phổ biến nhất"></nz-option>
+                            <nz-option nzValue="newest" nzLabel="Mới nhất"></nz-option>
+                            <nz-option nzValue="price_asc" nzLabel="Giá thấp đến cao"></nz-option>
+                            <nz-option nzValue="price_desc" nzLabel="Giá cao đến thấp"></nz-option>
+                        </nz-select>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="[20, 20]">
+                    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8" *ngFor="let item of costumes">
+                        <nz-card nzHoverable class="product-card" [nzCover]="coverTemplate"
+                            [routerLink]="['/costumes', item.id]">
+                            <ng-template #coverTemplate>
+                                <div class="card-img">
+                                    <img [src]="item.image" [alt]="item.name" />
+                                    <div class="card-badge">{{item.category}}</div>
+                                </div>
+                            </ng-template>
+                            <div class="product-info">
+                                <h3 class="product-name">{{item.name}}</h3>
+                                <div class="product-rating">
+                                    <nz-rate [ngModel]="item.rating" nzDisabled nzAllowHalf></nz-rate>
+                                    <span class="review-count">({{item.reviews}})</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="val">{{formatPrice(item.price)}}</span>
+                                    <span class="unit">/ngày</span>
+                                </div>
+                            </div>
+                        </nz-card>
+                    </div>
+                </div>
+
+                <div class="pagination-box mt-10 text-center">
+                    <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

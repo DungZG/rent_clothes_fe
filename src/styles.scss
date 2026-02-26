@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+// --- Design Tokens (Navy SaaS) ---
+:root {
+  // Brand Colors
+  --primary-navy-900: #1a2a3a;
+  --primary-navy-800: #253342;
+  --primary-navy-700: #2d4356;
+  --primary-navy-600: #3c546a;
+  --primary-navy-500: #415a76; // Main Navy
+  --primary-navy-400: #57708c;
+  --primary-navy-300: #778da9;
+  --primary-navy-200: #a1b1c2;
+  --primary-navy-100: #e0e6ed;
+  --primary-navy-50: #f4f7fa;
+
+  // Accents
+  --accent-gold: #f0a030;
+  --accent-gold-hover: #d98e27;
+  --accent-gold-light: #fff3e0;
+
+  // Semantic
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  // Typography
+  --font-main:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  // Shadows
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(26, 42, 58, 0.08);
+  --shadow-lg: 0 10px 25px rgba(26, 42, 58, 0.12);
+
+  // Border Radius
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px; // Default
+  --radius-full: 9999px;
+}
+
+// --- Global Resets & Elements ---
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #fff;
+  color: var(--primary-navy-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-navy-900);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+// --- Utility Classes ---
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-navy {
+  color: var(--primary-navy-500);
+}
+.text-gold {
+  color: var(--accent-gold);
+}
+.bg-navy {
+  background-color: var(--primary-navy-500);
+}
+.bg-navy-light {
+  background-color: var(--primary-navy-50);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
+// ng-zorro overrides (Navy SaaS Theme)
+.ant-btn-primary {
+  background-color: var(--primary-navy-500);
+  border-color: var(--primary-navy-500);
+  border-radius: var(--radius-md);
+  height: auto;
+  padding: 8px 24px;
+  font-weight: 500;
+
+  &:hover {
+    background-color: var(--primary-navy-700);
+    border-color: var(--primary-navy-700);
+  }
+}
+
+.ant-layout {
+  background: #fff;
+}

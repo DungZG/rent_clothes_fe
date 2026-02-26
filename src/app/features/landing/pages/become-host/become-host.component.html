@@ -1,0 +1,102 @@
+<div class="become-host-page">
+    <!-- Hero Section -->
+    <section class="host-hero section-padding">
+        <div class="container hero-wrapper">
+            <div class="hero-text">
+                <h1 class="title">Biến đam mê thành <span class="text-gold">thu nhập</span></h1>
+                <p class="subtitle">
+                    Tham gia cùng hơn 1,200 Hosts trên Thuê Gì để chia sẻ những bộ trang phục tâm huyết và kiếm thêm thu
+                    nhập từ tủ đồ của bạn.
+                </p>
+                <button nz-button nzType="primary" nzSize="large" class="btn-start">Đăng ký Listing đầu tiên</button>
+            </div>
+            <div class="hero-image-box">
+                <img src="https://images.unsplash.com/photo-1627637454030-5ddd536e06e5?q=80&w=800&auto=format"
+                    alt="Host Hero">
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section-padding bg-navy-light">
+        <div class="container text-center">
+            <h2 class="section-title">Tại sao nên trở thành Host?</h2>
+            <div nz-row [nzGutter]="32" class="mt-12">
+                <div nz-col [nzXs]="24" [nzMd]="8" *ngFor="let b of benefits">
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <span nz-icon [nzType]="b.icon"></span>
+                        </div>
+                        <h3>{{b.title}}</h3>
+                        <p>{{b.desc}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-padding timeline-section">
+        <div class="container">
+            <h2 class="section-title text-center">4 Bước để bắt đầu</h2>
+            <div class="timeline-wrapper mt-16">
+                <nz-timeline nzMode="alternate">
+                    <nz-timeline-item nzColor="blue">
+                        <div class="step-card">
+                            <h4>01. Tạo tài khoản</h4>
+                            <p>Xác minh danh tính và cung cấp thông tin liên hệ của bạn.</p>
+                        </div>
+                    </nz-timeline-item>
+                    <nz-timeline-item nzColor="green">
+                        <div class="step-card">
+                            <h4>02. Đăng tải trang phục</h4>
+                            <p>Chụp ảnh đẹp, mô tả chi tiết và thiết lập giá thuê theo ngày.</p>
+                        </div>
+                    </nz-timeline-item>
+                    <nz-timeline-item nzColor="blue">
+                        <div class="step-card">
+                            <h4>03. Xác nhận yêu cầu</h4>
+                            <p>Nhận thông báo khi có người muốn thuê và trao đổi qua chat.</p>
+                        </div>
+                    </nz-timeline-item>
+                    <nz-timeline-item nzColor="gold">
+                        <div class="step-card">
+                            <h4>04. Nhận thanh toán</h4>
+                            <p>Tiền sẽ được chuyển vào ví của bạn sau khi giao dịch hoàn tất.</p>
+                        </div>
+                    </nz-timeline-item>
+                </nz-timeline>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section-padding bg-navy text-white">
+        <div class="container">
+            <div nz-row [nzGutter]="32">
+                <div nz-col [nzXs]="12" [nzMd]="6">
+                    <nz-statistic [nzValue]="1200" nzTitle="Active Hosts" [nzPrefix]="prefixActive"></nz-statistic>
+                    <ng-template #prefixActive><span nz-icon nzType="user"></span></ng-template>
+                </div>
+                <div nz-col [nzXs]="12" [nzMd]="6">
+                    <nz-statistic [nzValue]="4.9" nzTitle="Average Rating" [nzSuffix]="'/ 5'"></nz-statistic>
+                </div>
+                <div nz-col [nzXs]="12" [nzMd]="6">
+                    <nz-statistic [nzValue]="500" nzTitle="Đơn hàng / Tuần" nzSuffix="+"></nz-statistic>
+                </div>
+                <div nz-col [nzXs]="12" [nzMd]="6">
+                    <nz-statistic [nzValue]="10" nzTitle="Doanh thu TB (Tr.)" nzSuffix="đ/tháng"></nz-statistic>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding text-center">
+        <div class="container container-sm">
+            <h2 class="title-lg">Sẵn sàng để bắt đầu chưa?</h2>
+            <p class="mb-10 text-muted">Tham gia cộng đồng Host chuyên nghiệp và bảo vệ đam mê của bạn.</p>
+            <button nz-button nzType="primary" nzSize="large" class="btn-cta">Trở thành Host ngay hôm nay</button>
+        </div>
+    </section>
+</div>
