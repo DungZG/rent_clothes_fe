@@ -1,9 +1,17 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from "@angular/core";
+import { provideRouter } from "@angular/router";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideNzIcons } from 'ng-zorro-antd/icon';
+import { routes } from "./app.routes";
+import {
+  provideClientHydration,
+  withEventReplay,
+} from "@angular/platform-browser";
+import { provideNzIcons } from "ng-zorro-antd/icon";
 import {
   ArrowRightOutline,
   FireOutline,
@@ -55,6 +63,9 @@ import {
   ExclamationCircleOutline,
   InfoCircleOutline,
   WarningOutline,
+  ThunderboltOutline,
+  SkinOutline,
+  SmileOutline,
   LoadingOutline,
   SyncOutline,
   ReloadOutline,
@@ -87,13 +98,14 @@ import {
   BarsOutline,
   SortAscendingOutline,
   SortDescendingOutline,
-} from '@ant-design/icons-angular/icons';
+} from "@ant-design/icons-angular/icons";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
+    provideAnimationsAsync(),
     provideClientHydration(withEventReplay()),
     provideNzIcons([
       ArrowRightOutline,
@@ -146,6 +158,9 @@ export const appConfig: ApplicationConfig = {
       ExclamationCircleOutline,
       InfoCircleOutline,
       WarningOutline,
+      ThunderboltOutline,
+      SkinOutline,
+      SmileOutline,
       LoadingOutline,
       SyncOutline,
       ReloadOutline,
@@ -178,6 +193,6 @@ export const appConfig: ApplicationConfig = {
       BarsOutline,
       SortAscendingOutline,
       SortDescendingOutline,
-    ])
-  ]
+    ]),
+  ],
 };

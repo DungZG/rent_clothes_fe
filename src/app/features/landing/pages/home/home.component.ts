@@ -1,19 +1,17 @@
-import { Component } from '@angular/core';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzTagModule } from 'ng-zorro-antd/tag';
-import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { FormsModule } from '@angular/forms';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { NzButtonModule } from "ng-zorro-antd/button";
+import { NzInputModule } from "ng-zorro-antd/input";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzGridModule } from "ng-zorro-antd/grid";
+import { NzCardModule } from "ng-zorro-antd/card";
+import { NzTagModule } from "ng-zorro-antd/tag";
+import { NzSelectModule } from "ng-zorro-antd/select";
 
 @Component({
-  selector: 'app-home',
+  selector: "app-home",
   standalone: true,
   imports: [
     CommonModule,
@@ -25,97 +23,124 @@ import { FormsModule } from '@angular/forms';
     NzGridModule,
     NzCardModule,
     NzTagModule,
-    NzAvatarModule,
     NzSelectModule,
-    NzDatePickerModule
   ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent {
-  featuredCostumes = [
-    {
-      id: 1,
-      name: 'Kamado Tanjiro (Demon Slayer)',
-      price: '150,000đ',
-      unit: '/ngày',
-      image: 'https://images.unsplash.com/photo-1627637454030-5ddd536e06e5?q=80&w=600&auto=format',
-      rating: 4.9,
-      reviews: 128,
-      category: 'Anime'
-    },
-    {
-      id: 2,
-      name: 'Yae Miko (Genshin Impact)',
-      price: '250,000đ',
-      unit: '/ngày',
-      image: 'https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=600&auto=format',
-      rating: 4.8,
-      reviews: 85,
-      category: 'Game'
-    },
-    {
-      id: 3,
-      name: 'Spider-man (Miles Morales)',
-      price: '180,000đ',
-      unit: '/ngày',
-      image: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=600&auto=format',
-      rating: 4.7,
-      reviews: 210,
-      category: 'Movie'
-    },
-    {
-      id: 4,
-      name: 'Hatsune Miku (Standard)',
-      price: '120,000đ',
-      unit: '/ngày',
-      image: 'https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=600&auto=format',
-      rating: 4.5,
-      reviews: 56,
-      category: 'Vocaloid'
-    }
+  search = {
+    category: null as string | null,
+    keyword: "",
+  };
+
+  categoryOptions = [
+    { label: "Anime", value: "anime" },
+    { label: "Game", value: "game" },
+    { label: "Movie", value: "movie" },
+    { label: "Original", value: "original" },
+  ];
+
+  heroStats = [
+    { label: "Trang phục sẵn sàng", value: "2,500+" },
+    { label: "Đối tác dịch vụ", value: "300+" },
+    { label: "Đánh giá trung bình", value: "4.9/5" },
   ];
 
   categories = [
-    { name: 'Anime', count: 1250, icon: 'fire', color: '#ff4d4f' },
-    { name: 'Game', count: 840, icon: 'rocket', color: '#1890ff' },
-    { name: 'Movie', count: 420, icon: 'video-camera', color: '#722ed1' },
-    { name: 'Original', count: 310, icon: 'bulb', color: '#faad14' }
+    { name: "Anime", icon: "fire", count: "980+" },
+    { name: "Game", icon: "rocket", count: "740+" },
+    { name: "Movie", icon: "video-camera", count: "420+" },
+    { name: "Original", icon: "star", count: "360+" },
+  ];
+
+  featuredCostumes = [
+    {
+      id: 1,
+      name: "Tanjiro Kamado Full Set",
+      category: "Anime",
+      price: "149.000đ / ngày",
+      rating: 4.9,
+      image:
+        "https://images.unsplash.com/photo-1627637454030-5ddd536e06e5?q=80&w=800&auto=format",
+      tag: "Hot",
+      favorite: false,
+    },
+    {
+      id: 2,
+      name: "Yae Miko Premium",
+      category: "Game",
+      price: "239.000đ / ngày",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=800&auto=format",
+      tag: "Mới",
+      favorite: false,
+    },
+    {
+      id: 3,
+      name: "Spider Verse - Miles",
+      category: "Movie",
+      price: "189.000đ / ngày",
+      rating: 4.9,
+      image:
+        "https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=800&auto=format",
+      tag: "Trending",
+      favorite: false,
+    },
+    {
+      id: 4,
+      name: "Gojo Satoru Signature Set",
+      category: "Anime",
+      price: "219.000đ / ngày",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format",
+      tag: "Mới",
+      favorite: false,
+    },
+  ];
+
+  howItWorks = [
+    {
+      title: "Chọn concept",
+      desc: "Lọc nhanh theo nhân vật, sự kiện và ngân sách.",
+      icon: "search",
+    },
+    {
+      title: "Đặt lịch & dịch vụ",
+      desc: "Chọn ngày thuê, makeup artist hoặc photographer.",
+      icon: "calendar",
+    },
+    {
+      title: "Nhận đồ & tỏa sáng",
+      desc: "Nhận trang phục đúng hẹn và sẵn sàng xuất hiện.",
+      icon: "check-circle",
+    },
   ];
 
   testimonials = [
     {
-      name: 'Nguyễn An',
-      role: 'Cosplayer',
-      content: 'Trang phục rất mới và thơm. Chủ shop hỗ trợ nhiệt tình, 10 điểm!',
-      avatar: 'https://i.pravatar.cc/150?u=a1'
+      name: "Ngọc Anh",
+      role: "Cosplayer",
+      content:
+        "Đồ lên form đẹp, sạch và support cực nhanh. Đi event yên tâm hẳn.",
+      avatar: "https://i.pravatar.cc/120?u=ngocanh",
     },
     {
-      name: 'Trần Bình',
-      role: 'Nhiếp ảnh gia',
-      content: 'Chất liệu lên hình cực đẹp. Quy trình thuê nhanh gọn hơn tôi tưởng.',
-      avatar: 'https://i.pravatar.cc/150?u=a2'
-    }
-  ];
-
-  // Hero search (UI only)
-  search = {
-    category: null as string | null,
-    character: '',
-    dateRange: null as [Date, Date] | null
-  };
-
-  categoryOptions = [
-    { label: 'Anime', value: 'anime' },
-    { label: 'Game', value: 'game' },
-    { label: 'Movie', value: 'movie' },
-    { label: 'Original', value: 'original' }
+      name: "Minh Trí",
+      role: "Nhiếp ảnh gia",
+      content: "Mình book combo đồ + makeup, workflow gọn và đúng giờ.",
+      avatar: "https://i.pravatar.cc/120?u=minhtri",
+    },
   ];
 
   onSearch(): void {
-    // TODO: wire với route / search API sau
-    // Hiện tại chỉ đảm bảo layout Stitch và không gây lỗi runtime.
-    // eslint-disable-next-line no-console
-    console.log('[Home] search', this.search);
+    console.log("[Landing] search:", this.search);
+  }
+
+  toggleFavorite(event: Event, item: { favorite: boolean }): void {
+    event.stopPropagation();
+    item.favorite = !item.favorite;
   }
 }
