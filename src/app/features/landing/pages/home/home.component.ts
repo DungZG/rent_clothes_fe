@@ -61,8 +61,7 @@ export class HomeComponent {
       category: "Anime",
       price: "149.000đ / ngày",
       rating: 4.9,
-      image:
-        "https://images.unsplash.com/photo-1627637454030-5ddd536e06e5?q=80&w=800&auto=format",
+      image: "/asset/mẫu ảnh/mẫu_2.3.jpg",
       tag: "Hot",
       favorite: false,
     },
@@ -72,8 +71,7 @@ export class HomeComponent {
       category: "Game",
       price: "239.000đ / ngày",
       rating: 4.8,
-      image:
-        "https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=800&auto=format",
+      image: "/asset/mẫu ảnh/mẫu_7.2.jpg",
       tag: "Mới",
       favorite: false,
     },
@@ -83,8 +81,7 @@ export class HomeComponent {
       category: "Movie",
       price: "189.000đ / ngày",
       rating: 4.9,
-      image:
-        "https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=800&auto=format",
+      image: "/asset/mẫu ảnh/mẫu_7.1.jpg",
       tag: "Trending",
       favorite: false,
     },
@@ -94,8 +91,7 @@ export class HomeComponent {
       category: "Anime",
       price: "219.000đ / ngày",
       rating: 4.8,
-      image:
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format",
+      image: "/asset/mẫu ảnh/kuoronami.jpg",
       tag: "Mới",
       favorite: false,
     },
@@ -125,13 +121,15 @@ export class HomeComponent {
       role: "Cosplayer",
       content:
         "Đồ lên form đẹp, sạch và support cực nhanh. Đi event yên tâm hẳn.",
-      avatar: "https://i.pravatar.cc/120?u=ngocanh",
+      avatar:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=240&auto=format&fit=crop",
     },
     {
       name: "Minh Trí",
       role: "Nhiếp ảnh gia",
       content: "Mình book combo đồ + makeup, workflow gọn và đúng giờ.",
-      avatar: "https://i.pravatar.cc/120?u=minhtri",
+      avatar:
+        "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=240&auto=format&fit=crop",
     },
   ];
 

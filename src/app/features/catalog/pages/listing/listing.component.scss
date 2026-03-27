@@ -73,6 +73,25 @@
     flex-direction: column;
     gap: 12px;
 
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .rating-option {
+      ::ng-deep .ant-rate {
+        font-size: 18px;
+        color: var(--accent-gold);
+      }
+
+      .rating-text {
+        white-space: nowrap;
+      }
+    }
+
     &.size-group {
       flex-direction: row;
       flex-wrap: wrap;

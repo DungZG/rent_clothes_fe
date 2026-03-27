@@ -1,0 +1,115 @@
+<div class="help-center-page">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Chúng tôi có thể giúp gì cho bạn?</h1>
+      <div class="search-wrapper">
+        <div class="search-box">
+          <span nz-icon nzType="search" nzTheme="outline" class="search-icon"></span>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Tìm kiếm bài viết, chủ đề..."
+            [(ngModel)]="searchQuery"
+            (keyup.enter)="onSearch()"
+          />
+          <button nz-button nzType="primary" class="search-btn" (click)="onSearch()">
+            Tìm kiếm
+          </button>
+        </div>
+        <div class="popular-links">
+          <span class="popular-label">Phổ biến:</span>
+          <a href="#" class="popular-link">Chính sách hoàn tiền</a>
+          <a href="#" class="popular-link">Xác minh danh tính</a>
+          <a href="#" class="popular-link">Bảo hiểm</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Categories -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="section-title">Danh mục hỗ trợ</h2>
+      <div nz-row [nzGutter]="[24, 24]">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzLg]="8" *ngFor="let cat of categories">
+          <div class="category-card" (click)="onCategoryClick(cat)">
+            <div class="category-icon-box">
+              <span nz-icon [nzType]="cat.icon" nzTheme="outline" class="category-icon"></span>
+            </div>
+            <h3 class="category-title">{{ cat.title }}</h3>
+            <p class="category-desc">{{ cat.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Questions / FAQ -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <h2 class="faq-title">Câu hỏi thường gặp</h2>
+      <div class="faq-list">
+        <a
+          *ngFor="let q of topQuestions"
+          [href]="q.link"
+          class="faq-item"
+          (click)="onQuestionClick(q)"
+        >
+          <div class="faq-item-left">
+            <span class="faq-dot"></span>
+            <span class="faq-question">{{ q.question }}</span>
+          </div>
+          <span nz-icon nzType="right" nzTheme="outline" class="faq-arrow"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Support -->
+  <section class="contact-section">
+    <div class="container">
+      <div nz-row [nzGutter]="[32, 32]">
+        <!-- Live Chat -->
+        <div nz-col [nzXs]="24" [nzMd]="12">
+          <div class="contact-card">
+            <div class="contact-icon primary">
+              <span nz-icon nzType="message" nzTheme="outline"></span>
+            </div>
+            <h3 class="contact-title">Nhắn tin hỗ trợ</h3>
+            <p class="contact-desc">Trò chuyện với đội ngũ hỗ trợ chuyên nghiệp của chúng tôi.</p>
+            <div class="status-badge green">
+              <span class="ping-dot">
+                <span class="ping-ring"></span>
+                <span class="ping-core"></span>
+              </span>
+              Phản hồi trong vòng 10 phút
+            </div>
+            <button nz-button nzType="primary" nzSize="large" class="contact-btn" (click)="onStartChat()">
+              Bắt đầu chat
+            </button>
+          </div>
+        </div>
+
+        <!-- Community -->
+        <div nz-col [nzXs]="24" [nzMd]="12">
+          <div class="contact-card">
+            <div class="contact-icon dark">
+              <span nz-icon nzType="team" nzTheme="outline"></span>
+            </div>
+            <h3 class="contact-title">Cộng đồng Help Center</h3>
+            <p class="contact-desc">Tìm kiếm thảo luận hiện có hoặc hỏi cộng đồng để được tư vấn.</p>
+            <div class="status-badge gray">
+              Hơn 24k thành viên đang hoạt động
+            </div>
+            <button nz-button nzSize="large" class="contact-btn outline-btn" (click)="onJoinCommunity()">
+              Tham gia cộng đồng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

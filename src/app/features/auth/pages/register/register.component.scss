@@ -1,0 +1,362 @@
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--primary-navy-50);
+  position: relative;
+  overflow: hidden;
+  padding: 40px 16px;
+}
+
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--primary-navy-200) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.register-card-wrapper {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+}
+
+.register-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(65, 90, 118, 0.12);
+  border: 1px solid var(--primary-navy-100);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 32px 32px 20px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-navy-900);
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--primary-navy-500);
+  margin: 0;
+}
+
+/* Form field system — không dùng nz-form-item để tránh lệch layout */
+.register-form {
+  padding: 0 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-navy-800);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.field-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--primary-navy-100);
+  border-radius: 8px;
+  background: var(--primary-navy-50);
+  font-size: 14px;
+  color: var(--primary-navy-900);
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+
+  &::placeholder {
+    color: var(--primary-navy-300);
+  }
+
+  &:hover {
+    border-color: var(--primary-navy-300);
+    background: #fff;
+  }
+
+  &:focus {
+    border-color: var(--primary-navy-500);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(65, 90, 118, 0.12);
+  }
+
+  &.error {
+    border-color: #ff4d4f;
+    background: #fff;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.1);
+    }
+  }
+}
+
+/* Password input với eye button */
+.input-wrapper {
+  position: relative;
+
+  .field-input {
+    padding-right: 44px;
+  }
+}
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--primary-navy-400);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-navy-600);
+  }
+
+  span[nz-icon] {
+    font-size: 16px;
+  }
+}
+
+.field-error {
+  display: block;
+  font-size: 12px;
+  color: #ff4d4f;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Password strength */
+.strength-meter {
+  margin-top: 10px;
+}
+
+.strength-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.strength-label-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary-navy-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.strength-level {
+  font-size: 11px;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.strength-track {
+  height: 5px;
+  width: 100%;
+  background: var(--primary-navy-100);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Terms */
+.terms-group {
+  margin-bottom: 20px;
+}
+
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.terms-checkbox-input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--primary-navy-500);
+  cursor: pointer;
+}
+
+.terms-text {
+  font-size: 13px;
+  color: var(--primary-navy-600);
+  line-height: 1.5;
+}
+
+.terms-link {
+  color: var(--primary-navy-500);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(65, 90, 118, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(65, 90, 118, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Social section */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 32px 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--primary-navy-100);
+}
+
+.divider-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary-navy-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 32px 0;
+}
+
+.social-icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-navy-100);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--primary-navy-50);
+    border-color: var(--primary-navy-200);
+  }
+}
+
+.social-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.social-icon-svg {
+  width: 24px;
+  height: 24px;
+
+  &.facebook {
+    color: #1877f2;
+  }
+}
+
+.card-footer {
+  padding: 20px 32px 28px;
+  margin-top: 8px;
+  text-align: center;
+  border-top: 1px solid var(--primary-navy-50);
+
+  p {
+    font-size: 13px;
+    color: var(--primary-navy-500);
+    margin: 0;
+  }
+}
+
+.link {
+  color: var(--primary-navy-500);
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 540px) {
+  .register-page {
+    padding: 24px 16px;
+  }
+
+  .card-header {
+    padding: 24px 20px 16px;
+  }
+
+  .register-form {
+    padding: 0 20px 20px;
+  }
+
+  .divider {
+    padding: 16px 20px 0;
+  }
+
+  .social-icons {
+    padding: 12px 20px 0;
+  }
+
+  .card-footer {
+    padding: 16px 20px 24px;
+  }
+}

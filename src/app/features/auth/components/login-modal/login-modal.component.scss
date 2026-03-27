@@ -1,0 +1,73 @@
+// Override NG-ZORRO input styles to match design
+nz-input-group {
+  &:not(.ant-input-group-wrapper) {
+    .ant-input {
+      height: 56px;
+      padding: 0 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: var(--primary-navy-50);
+
+      &:focus {
+        border-color: var(--primary-navy-500);
+        box-shadow: 0 0 0 2px rgba(65, 90, 119, 0.2);
+      }
+    }
+
+    .ant-input-prefix {
+      color: var(--text-gray);
+    }
+
+    .ant-input-suffix {
+      button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+      }
+    }
+  }
+}
+
+// Social login buttons
+button[nz-button] {
+  &.w-full.h-\[54px\] {
+    border: 1px solid var(--border-color);
+    background-color: var(--primary-navy-50);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--primary-navy-100);
+    }
+  }
+}
+
+// Primary button override
+.ant-btn-primary {
+  background-color: var(--primary-navy-500);
+  border-color: var(--primary-navy-500);
+  height: 56px;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-navy-700);
+    border-color: var(--primary-navy-700);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .ant-modal {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

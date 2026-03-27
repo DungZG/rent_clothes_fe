@@ -1,0 +1,63 @@
+<div class="blog-list-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Blog & Tin tức</h1>
+      <p class="hero-subtitle">Khám phá thế giới Cosplay cùng Thuê Gì</p>
+
+      <div class="search-box">
+        <nz-input-group [nzPrefix]="prefixIcon" nzSize="large">
+          <input
+            type="text"
+            nz-input
+            placeholder="Tìm kiếm bài viết..."
+            [(ngModel)]="searchQuery"
+            (keyup.enter)="onSearch()"
+          />
+        </nz-input-group>
+        <ng-template #prefixIcon>
+          <span nz-icon nzType="search"></span>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="blog-grid-section">
+    <div class="container">
+      <div nz-row [nzGutter]="[24, 24]">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzLg]="8" *ngFor="let post of blogPosts">
+          <a [routerLink]="['/blog', post.slug]" class="blog-card-link">
+            <nz-card [nzCover]="coverTemplate" [nzBordered]="false" class="blog-card">
+              <ng-template #coverTemplate>
+                <div class="blog-card-image" [style.background-image]="'url(' + post.imageUrl + ')'"></div>
+              </ng-template>
+
+              <nz-card-meta
+                [nzTitle]="titleTemplate"
+                [nzDescription]="post.excerpt"
+              >
+                <ng-template #titleTemplate>
+                  <nz-tag class="category-tag">{{ post.category }}</nz-tag>
+                  <h3 class="blog-card-title">{{ post.title }}</h3>
+                </ng-template>
+              </nz-card-meta>
+
+              <div class="blog-card-footer">
+                <div class="author-info">
+                  <div class="author-avatar" [style.background-image]="'url(' + post.author.avatar + ')'"></div>
+                  <span class="author-name">{{ post.author.name }}</span>
+                </div>
+                <div class="meta-info">
+                  <span class="publish-date">{{ post.publishedAt }}</span>
+                  <span class="separator">•</span>
+                  <span class="read-time">{{ post.readTime }}</span>
+                </div>
+              </div>
+            </nz-card>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

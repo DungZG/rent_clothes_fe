@@ -1,0 +1,74 @@
+// Interest tile styling
+.interest-tile {
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(65, 90, 119, 0.5);
+    background-color: var(--primary-navy-50);
+  }
+
+  &.selected {
+    border-color: var(--primary-navy-500);
+    background-color: rgba(65, 90, 119, 0.05);
+  }
+}
+
+// Progress bar styling
+.h-1\.5 {
+  &.bg-primary {
+    background-color: var(--primary-navy-500);
+  }
+
+  &.bg-primary\/20 {
+    background-color: rgba(65, 90, 119, 0.2);
+  }
+}
+
+// Button styling
+.ant-btn-primary {
+  background-color: var(--primary-navy-500);
+  border-color: var(--primary-navy-500);
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-navy-700);
+    border-color: var(--primary-navy-700);
+  }
+}
+
+// Select dropdown styling
+nz-select {
+  .ant-select-selector {
+    height: 48px !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+
+    &:focus,
+    &:focus-within {
+      border-color: var(--primary-navy-500);
+      box-shadow: 0 0 0 2px rgba(65, 90, 119, 0.2);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

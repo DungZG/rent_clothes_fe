@@ -1,0 +1,359 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-navy-50);
+  position: relative;
+  overflow: hidden;
+  padding: 40px 16px;
+}
+
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--primary-navy-200) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.login-card-wrapper {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(65, 90, 118, 0.12);
+  border: 1px solid var(--primary-navy-100);
+  overflow: hidden;
+}
+
+/* Header */
+.card-header {
+  padding: 32px 32px 20px;
+  text-align: center;
+}
+
+.logo-box {
+  width: 52px;
+  height: 52px;
+  background: var(--primary-navy-500);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 16px;
+}
+
+.logo-icon {
+  color: #fff;
+  font-size: 22px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-navy-900);
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--primary-navy-500);
+  margin: 0;
+}
+
+/* Social buttons */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 32px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 48px;
+  border: 1.5px solid var(--primary-navy-100);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-navy-800);
+  transition: all 0.2s ease;
+  font-family: inherit;
+
+  &:hover {
+    background: var(--primary-navy-50);
+    border-color: var(--primary-navy-200);
+  }
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  margin-bottom: 20px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--primary-navy-100);
+}
+
+.divider-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary-navy-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* Form */
+.login-form {
+  padding: 0 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-navy-800);
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Input with prefix icon */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--primary-navy-400);
+  font-size: 15px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.field-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--primary-navy-100);
+  border-radius: 8px;
+  background: var(--primary-navy-50);
+  font-size: 14px;
+  color: var(--primary-navy-900);
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+
+  &::placeholder {
+    color: var(--primary-navy-300);
+  }
+
+  &:hover {
+    border-color: var(--primary-navy-300);
+    background: #fff;
+  }
+
+  &:focus {
+    border-color: var(--primary-navy-500);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(65, 90, 118, 0.12);
+  }
+
+  &.has-prefix {
+    padding-left: 40px;
+  }
+
+  &.has-suffix {
+    padding-right: 44px;
+  }
+
+  &.error {
+    border-color: #ff4d4f;
+    background: #fff;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.1);
+    }
+  }
+}
+
+/* Eye button */
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--primary-navy-400);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-navy-600);
+  }
+
+  span[nz-icon] {
+    font-size: 16px;
+  }
+}
+
+/* Error message */
+.field-error {
+  display: block;
+  font-size: 12px;
+  color: #ff4d4f;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Password label row */
+.password-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+
+  .field-label {
+    margin-bottom: 0;
+  }
+}
+
+.forgot-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-navy-500);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  box-shadow: 0 4px 14px rgba(65, 90, 118, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(65, 90, 118, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
+.card-footer {
+  padding: 16px 32px 28px;
+  text-align: center;
+  border-top: 1px solid var(--primary-navy-50);
+
+  p {
+    font-size: 13px;
+    color: var(--primary-navy-500);
+    margin: 0;
+  }
+}
+
+.link {
+  color: var(--primary-navy-500);
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(65, 90, 118, 0.1),
+    var(--primary-navy-500),
+    rgba(65, 90, 118, 0.1)
+  );
+  opacity: 0.6;
+}
+
+@media (max-width: 540px) {
+  .login-page {
+    padding: 24px 16px;
+  }
+
+  .card-header {
+    padding: 24px 20px 16px;
+  }
+
+  .social-buttons {
+    padding: 0 20px;
+  }
+
+  .divider {
+    padding: 0 20px;
+  }
+
+  .login-form {
+    padding: 0 20px 20px;
+  }
+
+  .card-footer {
+    padding: 16px 20px 24px;
+  }
+}

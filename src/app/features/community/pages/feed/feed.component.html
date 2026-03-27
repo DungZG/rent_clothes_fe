@@ -1,0 +1,213 @@
+<div class="feed-page">
+  <div class="feed-container">
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar-left">
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading">Menu Cộng đồng</h3>
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item active">
+            <span nz-icon nzType="unordered-list" nzTheme="outline"></span>
+            <span>Bảng tin</span>
+          </a>
+          <a href="#" class="nav-item">
+            <span nz-icon nzType="fire" nzTheme="outline"></span>
+            <span>Chủ đề hot</span>
+          </a>
+          <a href="#" class="nav-item">
+            <span nz-icon nzType="team" nzTheme="outline"></span>
+            <span>Nhóm của tôi</span>
+          </a>
+          <a href="#" class="nav-item">
+            <span nz-icon nzType="calendar" nzTheme="outline"></span>
+            <span>Sự kiện sắp tới</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading">Nhóm hàng đầu</h3>
+        <div class="group-list">
+          <div *ngFor="let group of topGroups" class="group-item">
+            <div class="group-avatar" [class]="'group-avatar--' + group.color">{{ group.avatar }}</div>
+            <span class="group-name">{{ group.name }}</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Feed -->
+    <main class="feed-main">
+
+      <!-- Create Post Box -->
+      <div class="create-post-box">
+        <div class="create-post-inner">
+          <div class="user-avatar-placeholder"></div>
+          <div class="create-post-right">
+            <textarea
+              class="create-post-input"
+              placeholder="Bạn muốn chia sẻ điều gì?"
+              [(ngModel)]="newPostContent"
+              rows="2"
+            ></textarea>
+            <div class="create-post-actions">
+              <div class="action-buttons">
+                <button class="action-btn" type="button">
+                  <span nz-icon nzType="picture" nzTheme="outline"></span>
+                  <span class="action-label">Ảnh</span>
+                </button>
+                <button class="action-btn" type="button">
+                  <span nz-icon nzType="video-camera" nzTheme="outline"></span>
+                  <span class="action-label">Video</span>
+                </button>
+                <button class="action-btn" type="button">
+                  <span nz-icon nzType="bar-chart" nzTheme="outline"></span>
+                  <span class="action-label">Thăm dò</span>
+                </button>
+              </div>
+              <button nz-button nzType="primary" class="post-btn" (click)="onCreatePost()">
+                Đăng bài
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Post -->
+      <div class="post-card featured-post">
+        <div class="featured-layout">
+          <div
+            class="featured-image"
+            [style.background-image]="'url(' + featuredPost.images![0] + ')'"
+          ></div>
+          <div class="featured-content">
+            <span class="featured-badge">
+              <span nz-icon nzType="star" nzTheme="fill"></span>
+              Bài viết nổi bật
+            </span>
+            <h3 class="featured-title">Kinh nghiệm thuê đồ mùa lễ hội: Những điều cần tránh</h3>
+            <p class="featured-excerpt">{{ featuredPost.content }}</p>
+            <div class="featured-footer">
+              <div class="author-row">
+                <div class="author-avatar" [style.background-image]="'url(' + featuredPost.author.avatar + ')'"></div>
+                <span class="post-meta">{{ featuredPost.author.name }} • {{ featuredPost.timestamp }}</span>
+              </div>
+              <button class="read-more-btn" type="button">
+                Đọc thêm
+                <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Cards -->
+      <div *ngFor="let post of posts" class="post-card">
+
+        <!-- Post Header -->
+        <div class="post-header">
+          <div class="author-info">
+            <div class="author-avatar" [style.background-image]="'url(' + post.author.avatar + ')'"></div>
+            <div>
+              <div class="author-name-row">
+                <span class="author-name">{{ post.author.name }}</span>
+                <span *ngIf="post.author.badge === 'Pro'" class="badge pro">Pro</span>
+                <span *ngIf="post.author.badge === 'Verified'" nz-icon nzType="check-circle" nzTheme="fill" class="verified-icon"></span>
+              </div>
+              <span class="post-timestamp">{{ post.timestamp }}</span>
+            </div>
+          </div>
+          <button class="more-btn" type="button">
+            <span nz-icon nzType="ellipsis" nzTheme="outline"></span>
+          </button>
+        </div>
+
+        <!-- Post Content -->
+        <div class="post-content">
+          <p class="post-text">
+            {{ post.content }}
+            <a *ngFor="let tag of post.hashtags" href="#" class="hashtag"> {{ tag }}</a>
+          </p>
+
+          <!-- Single image -->
+          <div
+            *ngIf="post.images && post.images.length === 1"
+            class="post-single-image"
+            [style.background-image]="'url(' + post.images[0] + ')'"
+          ></div>
+
+          <!-- Grid images -->
+          <div *ngIf="post.images && post.images.length > 1" class="post-image-grid">
+            <div
+              *ngFor="let img of post.images"
+              class="post-image-grid-item"
+              [style.background-image]="'url(' + img + ')'"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Post Footer -->
+        <div class="post-footer">
+          <div class="reaction-buttons">
+            <button
+              class="reaction-btn"
+              [class.liked]="post.isLiked"
+              (click)="onLike(post)"
+              type="button"
+            >
+              <span nz-icon nzType="like" [nzTheme]="post.isLiked ? 'fill' : 'outline'"></span>
+              <span>{{ post.likes }}</span>
+            </button>
+            <button class="reaction-btn" (click)="onComment(post)" type="button">
+              <span nz-icon nzType="message" nzTheme="outline"></span>
+              <span>{{ post.comments }}</span>
+            </button>
+          </div>
+          <button class="reaction-btn" (click)="onShare(post)" type="button">
+            <span nz-icon nzType="share-alt" nzTheme="outline"></span>
+            <span class="share-label">Chia sẻ</span>
+          </button>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar-right">
+      <!-- Trending Topics -->
+      <div class="widget">
+        <h3 class="widget-title">
+          <span nz-icon nzType="rise" nzTheme="outline" class="widget-icon"></span>
+          Chủ đề đang xu hướng
+        </h3>
+        <div class="trending-list">
+          <div *ngFor="let topic of trendingTopics" class="trending-item">
+            <span class="trending-category">{{ topic.category }}</span>
+            <span class="trending-hashtag">{{ topic.hashtag }}</span>
+            <span class="trending-count">{{ topic.postCount | number }} bài viết</span>
+          </div>
+        </div>
+        <button class="view-all-btn" type="button">Xem tất cả</button>
+      </div>
+
+      <!-- Active Members Widget -->
+      <div class="widget">
+        <h3 class="widget-title">
+          <span nz-icon nzType="trophy" nzTheme="outline" class="widget-icon"></span>
+          Thành viên tích cực
+        </h3>
+        <div class="member-list">
+          <div *ngFor="let group of topGroups" class="member-item">
+            <div class="group-avatar member-avatar" [class]="'group-avatar--' + group.color">
+              {{ group.avatar }}
+            </div>
+            <div class="member-info">
+              <span class="member-name">{{ group.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>

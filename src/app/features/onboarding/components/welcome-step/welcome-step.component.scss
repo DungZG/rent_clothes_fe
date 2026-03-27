@@ -1,0 +1,47 @@
+// Primary button styling
+.ant-btn-primary {
+  background-color: var(--primary-navy-500);
+  border-color: var(--primary-navy-500);
+  height: 52px;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-navy-700);
+    border-color: var(--primary-navy-700);
+  }
+}
+
+// Text button styling
+.ant-btn-text {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+// Progress dots
+.h-2.w-2 {
+  &.bg-primary {
+    background-color: var(--primary-navy-500);
+  }
+
+  &.bg-primary\/20 {
+    background-color: rgba(65, 90, 119, 0.2);
+  }
+}
+
+// Feature point icons
+.bg-primary\/10 {
+  background-color: rgba(65, 90, 119, 0.1);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .md\:w-1\/2 {
+    width: 100%;
+  }
+
+  .md\:p-12 {
+    padding: 2rem;
+  }
+}

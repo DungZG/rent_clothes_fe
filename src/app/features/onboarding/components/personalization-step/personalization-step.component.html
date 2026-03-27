@@ -1,0 +1,86 @@
+<!-- Onboarding Modal Container -->
+<div class="w-full max-w-[900px] bg-white dark:bg-background-dark rounded-lg shadow-xl overflow-hidden flex flex-col">
+  <!-- Top Progress Header -->
+  <div class="px-8 pt-8 pb-4 flex flex-col gap-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2 text-primary">
+        <span nz-icon nzType="appstore" nzTheme="outline" class="text-2xl"></span>
+        <span class="font-bold text-lg tracking-tight">Thuê Gì</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Step 2 of 3</span>
+        <div class="flex gap-1">
+          <div class="h-1.5 w-6 rounded-full bg-primary/20"></div>
+          <div class="h-1.5 w-12 rounded-full bg-primary"></div>
+          <div class="h-1.5 w-6 rounded-full bg-primary/20"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="px-12 py-6 flex-1">
+    <div class="text-center mb-10">
+      <h1 class="text-[28px] font-bold text-[#000] dark:text-white leading-tight mb-2">Tailor Your Experience</h1>
+      <p class="text-gray-500 dark:text-gray-400 text-base">What are you interested in? Select all that apply.</p>
+    </div>
+
+    <!-- Interests Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
+      <div *ngFor="let interest of interests"
+           class="interest-tile group relative border-2 rounded-lg p-4 aspect-square flex flex-col items-center justify-center text-center transition-all hover:shadow-md"
+           [class.selected]="interest.selected"
+           (click)="toggleInterest(interest)">
+        <div *ngIf="interest.selected" class="absolute top-2 right-2 text-primary">
+          <span nz-icon nzType="check-circle" nzTheme="fill" class="text-xl"></span>
+        </div>
+        <div class="w-12 h-12 mb-3 rounded-full flex items-center justify-center shadow-sm"
+             [class.bg-white]="interest.selected"
+             [class.bg-gray-100]="!interest.selected">
+          <span nz-icon [nzType]="interest.icon" nzTheme="outline"
+                class="text-2xl"
+                [class.text-primary]="interest.selected"
+                [class.text-gray-500]="!interest.selected"></span>
+        </div>
+        <span class="text-sm font-semibold"
+              [class.text-gray-900]="interest.selected"
+              [class.text-gray-700]="!interest.selected">{{ interest.label }}</span>
+      </div>
+    </div>
+
+    <!-- Location Selector -->
+    <form [formGroup]="personalizationForm" class="max-w-md mx-auto">
+      <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Preferred City</label>
+      <nz-select formControlName="city" nzPlaceHolder="Select your location" nzSize="large" class="w-full">
+        <nz-option *ngFor="let city of cities" [nzValue]="city.value" [nzLabel]="city.label"></nz-option>
+      </nz-select>
+      <p class="mt-2 text-xs text-gray-400 flex items-center gap-1">
+        <span nz-icon nzType="info-circle" nzTheme="outline" class="text-sm"></span>
+        We'll show you listings and creators near you first.
+      </p>
+    </form>
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="px-12 py-8 bg-gray-50 dark:bg-black/10 border-t border-border-gray dark:border-gray-800 flex items-center justify-between">
+    <button nz-button nzType="default"
+            class="flex items-center gap-2 px-6 py-3 rounded-lg"
+            (click)="onBack()">
+      <span nz-icon nzType="arrow-left" nzTheme="outline"></span>
+      Back
+    </button>
+    <div class="flex items-center gap-4">
+      <button nz-button nzType="text"
+              class="text-gray-400 text-sm font-medium hover:text-gray-600"
+              (click)="onSkip()">
+        Skip for now
+      </button>
+      <button nz-button nzType="primary"
+              class="px-8 py-3 rounded-lg font-bold shadow-lg shadow-primary/20 flex items-center gap-2"
+              (click)="onNext()">
+        Get Started
+        <span nz-icon nzType="rocket" nzTheme="outline"></span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+  <!-- Main Onboarding Modal -->
+  <div class="bg-white dark:bg-background-dark w-full max-w-[900px] flex flex-col md:flex-row overflow-hidden rounded-lg shadow-2xl">
+    <!-- Left Side: Image Section -->
+    <div class="relative hidden md:block md:w-1/2 min-h-[600px]">
+      <div class="absolute inset-0 bg-cover bg-center"
+           style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJGJyQN33CGfMj-N2b4hKYs-zI5LqIehg4t8QhF9w5YP2Jw-m3tHns4Xk4AT-_qefz1JoBTixHwlyS9_YBjBSXXIsFX7H4T9lq0-5kw0vk8bGxW-ROvPxxKlY0MUd6v34jAMZPa1klb-3qHjjMsvbbhmbuWnaJNHWsckYyX5TLhSLELj-EIFSKqrHHswwc2TfZxJZeNQ4HwRnbtwCpwyrEGoO5vKOJlxkc6q3-z1NNeX-AfvxNKrMZNQx8w-cmGvihztQu04Kta8VK');">
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+        <!-- Bottom Branding -->
+        <div class="absolute bottom-8 left-8 text-white">
+          <p class="text-sm font-medium uppercase tracking-widest opacity-80">Thuê Gì Ecosystem</p>
+          <p class="text-lg font-bold">Your Cosplay Journey Starts Here</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Content Section -->
+    <div class="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-between">
+      <!-- Header & Progress Dots -->
+      <div class="flex flex-col gap-8">
+        <div class="flex justify-end gap-2">
+          <div class="h-2 w-2 rounded-full bg-primary"></div>
+          <div class="h-2 w-2 rounded-full bg-primary/20"></div>
+          <div class="h-2 w-2 rounded-full bg-primary/20"></div>
+        </div>
+
+        <div>
+          <h1 class="text-[#131416] dark:text-white text-3xl font-bold leading-tight mb-2">Welcome to Thuê Gì! 🎭</h1>
+          <p class="text-gray-500 dark:text-gray-400 text-base">Discover the ultimate ecosystem for cosplayers in Vietnam.</p>
+        </div>
+
+        <!-- Feature Points -->
+        <div class="flex flex-col gap-6 mt-4">
+          <!-- Point 1 -->
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
+              <span nz-icon nzType="appstore" nzTheme="outline" class="text-xl"></span>
+            </div>
+            <div>
+              <h3 class="text-[#131416] dark:text-white font-bold text-base">Rent Premium Costumes</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Thousands of outfits from top series.</p>
+            </div>
+          </div>
+
+          <!-- Point 2 -->
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
+              <span nz-icon nzType="camera" nzTheme="outline" class="text-xl"></span>
+            </div>
+            <div>
+              <h3 class="text-[#131416] dark:text-white font-bold text-base">Hire Professional Staff</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Photographers and makeup artists to complete your look.</p>
+            </div>
+          </div>
+
+          <!-- Point 3 -->
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
+              <span nz-icon nzType="safety-certificate" nzTheme="outline" class="text-xl"></span>
+            </div>
+            <div>
+              <h3 class="text-[#131416] dark:text-white font-bold text-base">Secure & Verified</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Every rental is protected by our deposit system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Buttons -->
+      <div class="flex flex-col gap-4 mt-12">
+        <button nz-button nzType="primary"
+                class="w-full h-[52px] rounded-lg font-bold text-base transition-all flex items-center justify-center gap-2"
+                (click)="onNext()">
+          Next
+          <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+        </button>
+        <button nz-button nzType="text"
+                class="w-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm font-medium"
+                (click)="onSkip()">
+          Skip for now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

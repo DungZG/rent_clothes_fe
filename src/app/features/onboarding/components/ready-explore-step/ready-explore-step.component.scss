@@ -1,0 +1,65 @@
+// Hero section styling
+.hero-section {
+  height: 320px;
+  background-color: rgba(65, 90, 119, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  .hero-gradient {
+    background: linear-gradient(to top, white, transparent);
+  }
+}
+
+// Feature cards
+.feature-card {
+  background-color: var(--primary-navy-50);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(65, 90, 119, 0.5);
+  }
+}
+
+// Primary button
+.ant-btn-primary {
+  background-color: var(--primary-navy-500);
+  border-color: var(--primary-navy-500);
+  height: 56px;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-navy-700);
+    border-color: var(--primary-navy-700);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Step indicator dots
+.step-indicator {
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    &.active {
+      background-color: white;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    height: 240px;
+  }
+}

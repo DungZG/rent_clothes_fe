@@ -1,0 +1,82 @@
+<!-- Onboarding Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+  <!-- Modal Container -->
+  <div class="bg-white dark:bg-background-dark w-full max-w-[900px] rounded-lg shadow-2xl overflow-hidden flex flex-col relative">
+    <!-- Hero Illustration Section -->
+    <div class="hero-section w-full relative">
+      <div class="absolute inset-0 bg-cover bg-center"
+           style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtOQtAXrdhv8ksYr_lBUf_IA2FHmrAZW--PWGJ2JTW3fKmDp9yuEH-aDqum5tKDrHlQLAXyTF4U7XpMltX_zYUxDIWulLWq_cVfLx6eReIKJX63KUbs7wsTSP60yfIAyAojncG85lfZj05LAV2C_64bQeJXGaPP2I_JloqFyjBXoAYEV5Fcc3cg6NwROW-G0sgwuIUebkNy7crY9KPbcvaFX_vRTiLD9Zw3LY3aiTFmbHwUkvHIoBussGdDjz5wnqJ7EKoTvOGN0ul');">
+      </div>
+      <div class="hero-gradient absolute inset-0"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="px-12 pb-10 -mt-16 relative z-10 flex flex-col items-center text-center">
+      <!-- Celebration Header -->
+      <div class="mb-8">
+        <h1 class="text-[#000] dark:text-white text-[32px] font-bold leading-tight mb-2">
+          You're all set! ✨
+        </h1>
+        <p class="text-[18px] text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+          Your personalized feed is ready. Dive in and find your next transformation.
+        </p>
+      </div>
+
+      <!-- Feature Highlights Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-10">
+        <!-- Card 1 -->
+        <div class="feature-card p-6 rounded-lg cursor-pointer">
+          <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-background-dark shadow-sm">
+            <span nz-icon nzType="appstore" nzTheme="outline" class="text-primary text-2xl"></span>
+          </div>
+          <h3 class="text-[#000] dark:text-white font-bold text-base mb-1">Start Browsing</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+            Discover over 2,000+ costumes for your next event.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card p-6 rounded-lg cursor-pointer">
+          <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-background-dark shadow-sm">
+            <span nz-icon nzType="safety-certificate" nzTheme="outline" class="text-primary text-2xl"></span>
+          </div>
+          <h3 class="text-[#000] dark:text-white font-bold text-base mb-1">Complete Profile</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+            Get verified to unlock priority rentals and more features.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card p-6 rounded-lg cursor-pointer">
+          <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-background-dark shadow-sm">
+            <span nz-icon nzType="dollar" nzTheme="outline" class="text-primary text-2xl"></span>
+          </div>
+          <h3 class="text-[#000] dark:text-white font-bold text-base mb-1">Earn Money</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+            Have costumes to share? Join as a host and start earning.
+          </p>
+        </div>
+      </div>
+
+      <!-- Primary Action Button -->
+      <button nz-button nzType="primary"
+              class="w-full rounded-lg shadow-lg shadow-primary/20 transition-all"
+              (click)="onStartExploring()">
+        Start Exploring
+      </button>
+
+      <!-- Footer Support -->
+      <p class="mt-8 text-sm text-gray-500 dark:text-gray-400">
+        Need help?
+        <a class="text-primary font-semibold hover:underline decoration-2 underline-offset-4" routerLink="/help">Visit our Help Center</a>
+      </p>
+    </div>
+
+    <!-- Step Indicator -->
+    <div class="step-indicator absolute top-6 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1 bg-black/10 rounded-full backdrop-blur-md">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+    </div>
+  </div>
+</div>

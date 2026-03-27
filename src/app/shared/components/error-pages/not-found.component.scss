@@ -1,0 +1,33 @@
+.text-404-shadow {
+  text-shadow: 4px 4px 0px rgba(65, 90, 119, 0.1);
+}
+
+.anime-illustration-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+// Override default button styles for primary buttons
+button.bg-primary {
+  background-color: var(--primary-navy-500);
+  border-color: var(--primary-navy-500);
+
+  &:hover {
+    background-color: var(--primary-navy-700);
+    border-color: var(--primary-navy-700);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  h1.text-\[120px\] {
+    font-size: 80px !important;
+  }
+
+  h2.text-\[28px\] {
+    font-size: 24px !important;
+  }
+
+  .min-w-\[180px\] {
+    min-width: 140px;
+  }
+}

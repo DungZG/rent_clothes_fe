@@ -17,7 +17,7 @@
                     <div class="filter-section">
                         <h4>Danh mục</h4>
                         <div class="filter-group">
-                            <label nz-checkbox *ngFor="let cat of categories" [(ngModel)]="cat.checked">
+                            <label class="filter-option" nz-checkbox *ngFor="let cat of categories" [(ngModel)]="cat.checked">
                                 {{cat.label}}
                             </label>
                         </div>
@@ -36,7 +36,7 @@
                     <div class="filter-section">
                         <h4>Kích thước</h4>
                         <div class="filter-group size-group">
-                            <label nz-checkbox *ngFor="let s of sizes" [(ngModel)]="s.checked">
+                            <label class="filter-option" nz-checkbox *ngFor="let s of sizes" [(ngModel)]="s.checked">
                                 {{s.label}}
                             </label>
                         </div>
@@ -45,9 +45,9 @@
                     <div class="filter-section">
                         <h4>Đánh giá</h4>
                         <div class="filter-group">
-                            <label nz-checkbox *ngFor="let r of [5,4,3]" [nzValue]="r">
+                            <label class="filter-option rating-option" nz-checkbox *ngFor="let r of [5,4,3]" [nzValue]="r">
                                 <nz-rate [ngModel]="r" nzDisabled></nz-rate>
-                                <span class="ml-2">từ {{r}} sao</span>
+                                <span class="rating-text">từ {{r}} sao</span>
                             </label>
                         </div>
                     </div>
