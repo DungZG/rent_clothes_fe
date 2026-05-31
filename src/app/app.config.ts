@@ -5,6 +5,7 @@ import {
 } from "@angular/core";
 import { provideRouter } from "@angular/router";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
+import { provideHttpClient, withInterceptors } from "@angular/common/http";
 
 import { routes } from "./app.routes";
 import {
@@ -12,6 +13,9 @@ import {
   withEventReplay,
 } from "@angular/platform-browser";
 import { provideNzIcons } from "ng-zorro-antd/icon";
+import { authInterceptor } from './core/auth/interceptors/auth.interceptor';
+import { errorInterceptor } from './core/http/interceptors/error.interceptor';
+import { loadingInterceptor } from './core/http/interceptors/loading.interceptor';
 import {
   ArrowRightOutline,
   FireOutline,
@@ -105,6 +109,9 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
+    provideHttpClient(
+      withInterceptors([authInterceptor, loadingInterceptor, errorInterceptor])
+    ),
     provideAnimationsAsync(),
     provideClientHydration(withEventReplay()),
     provideNzIcons([

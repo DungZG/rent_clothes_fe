@@ -12,16 +12,23 @@
     UPDATE: '/users/update',
     AVATAR: '/users/avatar',
   },
+  LISTINGS: {
+    CREATE: '/listings',
+    LIST: '/listings',
+    DETAIL: (id: string) => '/listings/' + id,
+  },
   COSTUMES: {
     LIST: '/costumes',
+    CREATE: '/costumes',
     DETAIL: (id: string) => '/costumes/' + id,
     SEARCH: '/costumes/search',
   },
   BOOKINGS: {
-    CREATE: '/bookings',
+    CHECKOUT: '/bookings/checkout',
     LIST: '/bookings',
     DETAIL: (id: string) => '/bookings/' + id,
     CANCEL: (id: string) => '/bookings/' + id + '/cancel',
+    RESCHEDULE: (id: string) => '/bookings/' + id + '/reschedule',
   },
   SHOPS: {
     DASHBOARD: '/shops/dashboard',
